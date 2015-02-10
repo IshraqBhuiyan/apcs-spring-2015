@@ -1,5 +1,5 @@
 public class Recursion{
-    public String toString() {
+    public String name() {
 	return "Bhuiyan,Ishraq";
     }
 
