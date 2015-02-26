@@ -49,14 +49,56 @@ public class NQueens{
 	numQueens = 0;
     }
 
+    public boolean checkDir(int x, int y, int xdir, int ydir){ //xdir and ydir are either 1, 0, or -1 to determine increments
+	try{
+	    int i=1;
+	    while(true){
+		if(board[x + i*xdir][y + i*ydir] == 'Q') return false;
+		i++;
+	    }
+	}catch(Exception e){
+	    return true;
+	}
+	System.out.println("This should not be printed, checkDir Method");
+	return true;
+    }
+
+
+    public boolean checkPos(int x, int y){
+	if(!checkDir(x, y, 1, 0) || !checkDir(x, y, 0, 1) || !checkDir(x, y, -1, 0) || !checkDir(x, y, 0, -1) || !checkDir(x, y, 1, 1) ||
+	   !checkDir(x, y, -1, -1) || !checkDir(x, y, -1, 1) || !checkDir(x, y, 1, -1)){
+	    return false;
+	}
+	return true;
+    }
+
+
     public boolean solve(){
 	this.solve(0);
     }
 
     public boolean solve(int x){
-	if(x < 0 || x >=board.size) throw new IllegalArgumentException("You must start inside of the board.");
-	if(numQueens == board.size) return true;
+	this.solve(x, 0);
+    }
 
+    public boolean solve(int x, int y){
+	if(numQueens == board.size) return true;
+	if(x<0 || x>=board.size || y<0 || y>=board.size) return false;
+	board[x][y] = 'Q';
+	numQueens++;
+	if(check(x, y)){
+	    if(solve(x+1, y)) return true;
+	}
+	if(y< board.size - 1){
+	    if(solve(x, y+1)) return true;
+	}
+	board[x][y] = 'X';
+	return false;
+    }
+
+
+    public String name(){
+	return "bhuiyan.ishraq";
     }
 
 }
