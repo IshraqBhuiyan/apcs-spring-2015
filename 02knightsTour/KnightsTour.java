@@ -87,5 +87,9 @@ public class KnightsTour{
 	return false;
     }
 
+    public String name(){
+	return "bhuiyan.ishraq";
+    }
+
 
 }
