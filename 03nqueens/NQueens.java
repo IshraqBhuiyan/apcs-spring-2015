@@ -76,7 +76,7 @@ public class NQueens{
     }
 
     public boolean solve(int x){
-	board[0][x] = 'Q';
+	board[0][x-1] = 'Q';
 	numQueens++;
 	return this.solve(1, 0);
     }
