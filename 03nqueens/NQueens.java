@@ -59,8 +59,8 @@ public class NQueens{
 	}catch(Exception e){
 	    return true;
 	}
-	System.out.println("This should not be printed, checkDir Method");
-	return true;
+	// System.out.println("This should not be printed, checkDir Method");
+	//return true;
     }
 
 
@@ -74,28 +74,60 @@ public class NQueens{
 
 
     public boolean solve(){
-	this.solve(0);
+	return this.solve(0);
     }
 
     public boolean solve(int x){
-	this.solve(x, 0);
+	board[0][x] = 'Q';
+	numQueens++;
+	return this.solve(1, 0);
     }
 
-    public boolean solve(int x, int y){
-	if(numQueens == board.size) return true;
-	if(x<0 || x>=board.size || y<0 || y>=board.size) return false;
+    public boolean solveOld(int x, int y){
+	System.out.println(this);
+	wait(20);
+	if(numQueens == board.length) return true;
+	if(y>=board.length) return false;
 	board[x][y] = 'Q';
 	numQueens++;
-	if(check(x, y)){
-	    if(solve(x+1, y)) return true;
+	if(!checkPos(x, y)){
+	    board[x][y] = 'X';
+	    numQueens--;
+	    if(!solve(x, y+1)) return false;
 	}
-	if(y< board.size - 1){
-	    if(solve(x, y+1)) return true;
+	if(x< board.length - 1){
+	    if(!solve(x+1, 0)){
+		board[x][y] = 'X';
+		numQueens--;
+		return false;
+	    }
 	}
 	board[x][y] = 'X';
+	numQueens--;
 	return false;
     }
 
+    public boolean solve(int x, int y){
+	//System.out.println(this);
+	//wait(20);
+	if(numQueens == board.length) return true;
+	if(y >= board.length) return false;
+	board[x][y] = 'Q';
+	numQueens++;
+	//System.out.println(this);
+	//System.out.println("checking pos of current queen: " + checkPos(x, y));
+	//wait(20);
+	if(checkPos(x, y)){
+	    if(solve(x+1, 0)) return true;
+	}
+	board[x][y] = 'X';
+	numQueens--;
+	if(solve(x, y+1)){
+	    return true;
+	}else{
+	    return false;
+	}
+    }
 
     public String name(){
 	return "bhuiyan.ishraq";
