@@ -59,8 +59,6 @@ public class NQueens{
 	}catch(Exception e){
 	    return true;
 	}
-	// System.out.println("This should not be printed, checkDir Method");
-	//return true;
     }
 
 
@@ -74,37 +72,13 @@ public class NQueens{
 
 
     public boolean solve(){
-	return this.solve(0);
+	return this.solve(0, 0);
     }
 
     public boolean solve(int x){
 	board[0][x] = 'Q';
 	numQueens++;
 	return this.solve(1, 0);
-    }
-
-    public boolean solveOld(int x, int y){
-	System.out.println(this);
-	wait(20);
-	if(numQueens == board.length) return true;
-	if(y>=board.length) return false;
-	board[x][y] = 'Q';
-	numQueens++;
-	if(!checkPos(x, y)){
-	    board[x][y] = 'X';
-	    numQueens--;
-	    if(!solve(x, y+1)) return false;
-	}
-	if(x< board.length - 1){
-	    if(!solve(x+1, 0)){
-		board[x][y] = 'X';
-		numQueens--;
-		return false;
-	    }
-	}
-	board[x][y] = 'X';
-	numQueens--;
-	return false;
     }
 
     public boolean solve(int x, int y){
