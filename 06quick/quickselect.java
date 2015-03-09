@@ -57,6 +57,13 @@ public class quickselect{
 	if(n > arr.length || n < 0) return -1;
 	int start = 0;
 	int end = arr.length;
-	while(part(arr, start, end) != n){};
+	int check = part(arr, start, end);
+	while(check != n){
+	    if(check > n) end = check;
+	    if(check < n){
+		start = check;
+	    }
+	    check = part(arr, start, end);
+	}
 	return arr[n];
     }
