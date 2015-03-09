@@ -1,0 +1,21 @@
+import java.util.*;
+import java.io.*;
+
+public class partition{
+
+    public static void main(String[]args){
+	int[] test = {3, 4, 5, 2, 11, 178, 56, 23, 65, 73, 98, 77, 42};
+	partition(test, 5, test.length-1);
+    }
+
+    public static void partition(int[] split, int si, int ei){
+	int[] D = new int[split.length];
+	for(int i=0;i<si;i++){
+	    D[i] = split[i];
+	}
+	for(int i=split.length-1;i>ei;i--){
+	    D[i]=split[i];
+	}
+	int pivot = split[(Math.random() * (ei - si)) + si];
+	while(si != ei){
+	    if(split[si] 

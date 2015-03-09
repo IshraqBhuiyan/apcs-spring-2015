@@ -23,14 +23,12 @@ public class driver{
 
 	}
 	*/
-	KnightsTour t = new KnightsTour(5);
-	System.out.println(t.name());
-	System.out.println("Knights Tour:");
-	//t.solve();
-	//System.out.println(t);
-	t.solve(3,3);
-	System.out.println(t);
-
+	KnightsTour t = new KnightsTour(6);
+	if(t.solve()){
+	    System.out.println(t);
+	}else{
+	    System.out.println("Cannot solve");
+	}
     }
 
 }
