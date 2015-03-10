@@ -36,7 +36,7 @@ public class quickselect{
 	for(i=0;i<copy.length;i++){
 	    if(i<si || i>ei) copy[i] = arry[i];
 	}
-	int pivot = arry[(int)(Math.random() * (ei - si)) +si]; //randomly determine the pivot in the range of ei to si
+	int pivot = arry[(int)(Math.random() * (ei - si+1)) +si]; //randomly determine the pivot in the range of ei to si
 	int end = ei;
 	for(i=si;i<end+1;i++){
 	    if(arry[i] > pivot){
