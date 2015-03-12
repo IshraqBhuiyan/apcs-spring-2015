@@ -6,12 +6,12 @@ public class linkedList{
     private int size;
 
     public linkedList(){
+	size = 0;
     }
 
     public linkedList(LNode x){
-	setHead(x);
-	LNode x = head;
-	while(x.getValue() != null){
+	head = x;
+	while(x.getNext() != null){
 	    size++;
 	    x = head.getNext();
 	}
@@ -56,11 +56,11 @@ public class linkedList{
     }
 
     private boolean add(LNode point){
-	LNode point = head;
-	while(point.getNext() != null){
-	    point = point.getNext();
+	LNode temp = head;
+	while(temp.getNext() != null){
+	    temp = temp.getNext();
 	}
-	point.setNext(point);
+	temp.setNext(point);
 	size++;
 	return true;
     }
@@ -97,7 +97,7 @@ public class linkedList{
 
     public String toString(){
 	LNode point = head;
-	String ans = "["+ point + ",";
+	String ans = "[";
 	while(point.getNext() != null){
 	    ans+=point;
 	    point = point.getNext();
