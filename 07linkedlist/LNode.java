@@ -8,6 +8,10 @@ public class LNode{
     public LNode(){
     }
 
+    public LNode(int value){
+	setValue(value);
+    }
+    
     public LNode(int value, LNode next){
 	setValue(value);
 	setNext(next);
