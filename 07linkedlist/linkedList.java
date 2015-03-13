@@ -3,6 +3,7 @@ import java.io.*;
 
 public class linkedList{
     private LNode head;
+    private LNode tail;
     private int size;
 
     public linkedList(){
@@ -11,10 +12,12 @@ public class linkedList{
 
     public linkedList(LNode x){
 	head = x;
+	size = 1;
 	while(x.getNext() != null){
 	    size++;
 	    x = head.getNext();
 	}
+	tail = x;
     }
 
     public LNode get(int index){
@@ -40,7 +43,7 @@ public class linkedList{
 	return i;
     }
 
-    public void set(int val, int index){
+    public void set(int index, int val){
 	LNode point = head;
 	int i = 0;
 	while(i != index){
@@ -52,7 +55,10 @@ public class linkedList{
 
     public boolean add(int val){
 	LNode point = new LNode(val);
-	return add(point);
+	tail.setNext(point);
+	tail = point;
+	size++;
+	return true;
     }
 
     private boolean add(LNode point){
@@ -65,7 +71,7 @@ public class linkedList{
 	return true;
     }
 
-    public boolean add(int val, int index){
+    public boolean add(int index, int val){
 	LNode point = head;
 	LNode add = new LNode(val);
 	int i = 0;
@@ -77,6 +83,7 @@ public class linkedList{
 	point.setNext(add);
 	add.setNext(next);
 	size++;
+	if(index == size() - 1) tail = add;
 	return true;
     }
 
