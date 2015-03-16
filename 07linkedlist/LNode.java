@@ -1,35 +1,35 @@
 import java.util.*;
 import java.io.*;
 
-public class LNode{
-    private int value;
-    private LNode next;
+public class LNode<T extends Comparable<T>>{
+    private T value;
+    private LNode<T> next;
 
     public LNode(){
     }
 
-    public LNode(int value){
+    public LNode(T value){
 	setValue(value);
     }
     
-    public LNode(int value, LNode next){
+    public LNode(T value, LNode<T> next){
 	setValue(value);
 	setNext(next);
     }
 
-    public void setValue(int x){
+    public void setValue(T x){
 	value = x;
     }
 
-    public void setNext(LNode x){
+    public void setNext(LNode<T> x){
 	next = x;
     }
 
-    public int getValue(){
+    public T getValue(){
 	return value;
     }
 
-    public LNode getNext(){
+    public LNode<T> getNext(){
 	return next;
     }
 
