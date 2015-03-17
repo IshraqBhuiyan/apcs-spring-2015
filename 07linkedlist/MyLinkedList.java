@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MyLinkedList<T extends Comparable<T>>{
+public class MyLinkedList<T extends Comparable<T>> implements Iterable<T>{
     private LNode<T> head;
     private LNode<T> tail;
     private int size;
@@ -18,6 +18,41 @@ public class MyLinkedList<T extends Comparable<T>>{
 	    x = head.getNext();
 	}
 	tail = x;
+    }
+
+    public class Iterate<T extends Comparable<T>> implements Iterator<T>{
+	private LNode<T> current;
+	private LNode<T> tail;
+
+	public Iterate(){
+	}
+
+	public Iterate(LNode<T> head, LNode<T> tail){
+	    this.head = current;
+	    this.tail = tail;
+	}
+
+	public boolean hasNext(){
+	    if(current.getNext() == null){
+		return false;
+	    }
+	    return true;
+	}
+
+	public T next(){
+	    if(current.getNext() == null) throw new NoSuchElementException();
+	    current = current.getNext();
+	    return current;
+	}
+
+	public void remove(){
+	    throw new UnsupportedOperationException();
+	}
+
+    }
+
+    public Iterator<T> iterator(){
+	return new Iterate<LNode<T>>(head, tail);
     }
 
     public String name(){
