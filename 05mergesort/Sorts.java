@@ -16,11 +16,11 @@ public class Sorts{
 	    }
 	    if(i2 == b.length){
 		for(;i1<a.length;i1++){
-		    merged(i1+i2) = a[i1];
+		    merged[i1+i2] = a[i1];
 		}
 		return merged;
 	    }
-	    if(a[i1]<n[i2]){
+	    if(a[i1]<b[i2]){
 		merged[i1+i2] = a[i1];
 		i1++;
 	    }
@@ -32,11 +32,25 @@ public class Sorts{
 	return merged;
     }
 
-    public static int[] mergeSort(int[]arr){
+    public static int[] mergeSortA(int[]arr){
 	if(arr.length <= 1) return arr;
 	int[] split1 = Arrays.copyOfRange(arr, 0, arr.length/2);
-	int[] split2 = Array.copyOfRange(arr, arr.length/2, arr.length);
-	return merge(mergeSort(split1), mergeSort(split2));
+	int[] split2 = Arrays.copyOfRange(arr, arr.length/2, arr.length);
+	return merge(mergeSortA(split1), mergeSortA(split2));
+    }
+
+    public static void mergeSort(int[]arr){
+	int[] sorted = mergeSortA(arr);
+	for(int i=0;i<sorted.length;i++){
+	    arr[i] = sorted[i];
+	}
+    }
+
+    public static void main(String[]args){
+	int[] unsorted = {544, 233, 567, 98921873, 12234, 1245634, 123236373, 123265732};
+	System.out.println(Arrays.toString(unsorted));
+	mergeSort(unsorted);
+	System.out.println(Arrays.toString(unsorted));
     }
 
 }
