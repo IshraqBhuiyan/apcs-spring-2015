@@ -9,15 +9,15 @@ public class LNode<T extends Comparable<T>>{
     }
 
     public LNode(T value){
-	setValue(value);
+	setData(value);
     }
     
     public LNode(T value, LNode<T> next){
-	setValue(value);
+	setData(value);
 	setNext(next);
     }
 
-    public void setValue(T x){
+    public void setData(T x){
 	value = x;
     }
 
@@ -25,7 +25,7 @@ public class LNode<T extends Comparable<T>>{
 	next = x;
     }
 
-    public T getValue(){
+    public T getData(){
 	return value;
     }
 
@@ -34,7 +34,7 @@ public class LNode<T extends Comparable<T>>{
     }
 
     public String toString(){
-	return "" + getValue();
+	return "" + getData();
     }
 
 }

@@ -4,7 +4,7 @@ import java.io.*;
 public class driver{
 
     public static void main(String[]args){
-	linkedList<Integer> l = new linkedList<Integer>(new LNode<Integer>(0));
+	MyLinkedList<Integer> l = new MyLinkedList<Integer>(new LNode<Integer>(0));
 	for(int i = 0; i< 40; i++){
 	    l.add(i);
 	}
@@ -15,6 +15,7 @@ public class driver{
 	System.out.println(l + " add to 5 6");
 	l.remove(16);
 	System.out.println(l + " remove 16");
+	l.set(5, 6);
     }
 
 }
