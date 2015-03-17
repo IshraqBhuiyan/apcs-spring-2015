@@ -6,7 +6,9 @@ public class quickselect{
     public static void main(String[]args){
 	int[] test = {3, 4, 5, 2, 11, 178, 56, 23, 65, 73, 98, 77, 42};
 	System.out.println(Arrays.toString(test));
-	System.out.println(""+quickselect(test, 4));
+	//System.out.println(""+quickselect(test, 4));
+	quickSort(test);
+	System.out.println(Arrays.toString(test));
     }
 
     public static void partition(int[] split, int si, int ei){
@@ -88,7 +90,7 @@ public class quickselect{
     public static void quicksort(int[]arr, int s, int e){
 	if(s >=e) return;
 	int pivot = part(arr, s, e);
-	quicksort(a, s, pivot - 1);
-	quicksort(a, s, pivot + 1);
+	quicksort(arr, s, pivot - 1);
+	quicksort(arr, s, pivot + 1);
     }
 }
