@@ -80,4 +80,15 @@ public class quickselect{
 	if(check > n) return quickselect(arr, n, si, check);
 	return quickselect(arr, n - check, check, ei);
     }
+
+    public static void quickSort(int[]arr){
+	quicksort(arr, 0, arr.length - 1);
+    }
+
+    public static void quicksort(int[]arr, int s, int e){
+	if(s >=e) return;
+	int pivot = part(arr, s, e);
+	quicksort(a, s, pivot - 1);
+	quicksort(a, s, pivot + 1);
+    }
 }
