@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class MyLinkedList<T extends Comparable<T>> implements Iterable<T>{
+public class MyLinkedList<T> implements Iterable<T>{
     private LNode<T> head;
     private LNode<T> tail;
     private int size;
@@ -20,7 +20,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T>{
 	tail = x;
     }
 
-    public class Iterate<T extends Comparable<T>> implements Iterator<T>{
+    public class Iterate<T> implements Iterator<T>{
 	private LNode<T> current;
 	private LNode<T> tail;
 
@@ -28,7 +28,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T>{
 	}
 
 	public Iterate(LNode<T> head, LNode<T> tail){
-	    this.head = current;
+	    current = head;
 	    this.tail = tail;
 	}
 
@@ -42,7 +42,8 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T>{
 	public T next(){
 	    if(current.getNext() == null) throw new NoSuchElementException();
 	    current = current.getNext();
-	    return current;
+	    T thing = current.getData();
+	    return thing;
 	}
 
 	public void remove(){
@@ -52,7 +53,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T>{
     }
 
     public Iterator<T> iterator(){
-	return new Iterate<LNode<T>>(head, tail);
+	return new Iterate<T>(head, tail);
     }
 
     public String name(){
@@ -74,7 +75,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T>{
     public int indexOf(T val){
 	LNode<T> point = head;
 	int i = 0;
-	while(i<size() && point.getData().compareTo(val) != 0){
+	while(i<size() && point.getData().equals(val)){
 	    point = point.getNext();
 	    i++;
 	}

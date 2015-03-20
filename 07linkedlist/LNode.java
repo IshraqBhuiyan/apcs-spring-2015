@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class LNode<T extends Comparable<T>>{
+public class LNode<T>{
     private T value;
     private LNode<T> next;
 
