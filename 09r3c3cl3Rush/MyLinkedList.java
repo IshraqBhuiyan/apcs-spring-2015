@@ -116,7 +116,7 @@ public class MyLinkedList<T> implements Iterable<T>{
 	LNode<T> add = new LNode<T>(val);
 	int i = 0;
 	if(index == 0){
-	    add.setNext() = head;
+	    add.setNext(head);
 	    head = add;
 	}
 	while(i< index - 1){
