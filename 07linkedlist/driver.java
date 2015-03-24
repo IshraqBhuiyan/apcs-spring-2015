@@ -16,6 +16,9 @@ public class driver{
 	l.remove(16);
 	System.out.println(l + " remove 16");
 	l.set(5, 6);
+	for(int i:l){
+	    System.out.print("potato");
+	}
     }
 
 }

@@ -115,6 +115,10 @@ public class MyLinkedList<T> implements Iterable<T>{
 	LNode<T> point = head;
 	LNode<T> add = new LNode<T>(val);
 	int i = 0;
+	if(index == 0){
+	    add.setNext() = head;
+	    head = add;
+	}
 	while(i< index - 1){
 	    point = point.getNext();
 	    i++;
@@ -130,6 +134,11 @@ public class MyLinkedList<T> implements Iterable<T>{
     public T remove(int index){
 	LNode<T> point = head;
 	int i = 0;
+	if(index == 0){
+	    T value = head.getData();
+	    head = head.getNext();
+	    return value;
+	}
 	while(i < index - 1){
 	    point = point.getNext();
 	    i++;
@@ -152,5 +161,9 @@ public class MyLinkedList<T> implements Iterable<T>{
 	}
 	ans+=point + "]";
 	return ans;
+    }
+
+    public LNode<T> getHead(){
+	return head;
     }
 }
