@@ -1,10 +1,29 @@
 import java.util.*;
 import java.io.*;
 
-public class myQueue<T> extends MyLinkedList<T>{
-    private MyLinkedList<T> queue;
-    private LNode<T> head;
+public class myQueue<T> extends myStack<T>{
 
-    public boolean;
+    public myQueue(){
+	super();
+    }
 
-    public void dequeue
+    public myQueue(T x){
+	super(x);
+    }
+
+    public T add(T x){
+	super.add(x);
+	return x;
+    }
+
+    public T peek(){
+	return super.get(0).getData();
+    }
+
+    public T pop(){
+	T item = super.get(0).getData();
+	super.remove(0);
+	return item;
+    }
+
+}

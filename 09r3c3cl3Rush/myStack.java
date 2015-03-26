@@ -7,6 +7,10 @@ public class myStack<T> extends MyLinkedList<T>{
 	super();
     }
 
+    public myStack(T x){
+	this(new LNode<T>(x));
+    }
+
     public myStack(LNode<T> x){
 	super(x);
     }
