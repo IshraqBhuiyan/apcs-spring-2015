@@ -5,14 +5,39 @@ public class Maze{
     private static final String clear =  "\033[2J";
     private static final String hide =  "\033[?25l";
     private static final String show =  "\033[?25h";
-    private int[][] maze;
+    
+    private char[][] maze;
+    private int[] solutions;
+    private int startx, starty, maxx, maxy;
+    
     private String go(int x,int y){
 	return ("\033[" + x + ";" + y + "H");
     }
 
     /** Same constructor as before...*/
     public Maze(String filename){
-	
+	maxx = 0;
+	maxy = 0;
+	String ans = "";
+	try{
+	    Scanner in = new Scanner(new File(filename));
+	    while(in.hasNext()){
+		String line = in.nextLine();
+		if(maxx == 0) maxx = line.length();
+		maxy ++;
+	    }
+	}catch(Exception e){
+	    throw new FileNotFoundException(filename);
+	}
+	maze = new char[maxx][maxy];
+	for(int i = 0; i< ans.length();i++){
+	    char c = ans.charAt(i);
+	    maze[i%maxx][i/maxx] = c;
+	    if(c == 'S'){
+		startx = i%maxx;
+		starty = i/maxx;
+	    }
+	}
     }
 
     public String toString();//do not do the funky character codes
@@ -31,7 +56,9 @@ public class Maze{
      * When animate is true, print the board at each step of the algorithm.
      * Replace spaces with x's as you traverse the maze. 
      */
-    public boolean solveDFS(boolean animate){    }
+    public boolean solveDFS(boolean animate){
+
+    }
 
     public boolean solveBFS(){
 	return solveBFS(false);
@@ -46,5 +73,6 @@ public class Maze{
      *Postcondition:  the correct solution is in the returned array
      */
     public int[] solutionCoordinates(){
+
     }
 }
