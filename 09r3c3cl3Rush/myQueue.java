@@ -11,9 +11,8 @@ public class myQueue<T> extends myStack<T>{
 	super(x);
     }
 
-    public T add(T x){
-	super.add(x);
-	return x;
+    public boolean add(T x){
+	return super.add(x);
     }
 
     public T peek(){
