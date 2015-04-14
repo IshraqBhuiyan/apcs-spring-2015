@@ -6,7 +6,7 @@ public class MyDeque<T>{
     private int start, end;
 
     public MyDeque(){
-	deque = new int[15];
+	deque = new Object[15];
     }
 
     public MyDeque(T item){
@@ -53,6 +53,24 @@ public class MyDeque<T>{
 	}else{
 	    start = null;
 	}
+    }
+
+    public void resize(){
+	Object[] temp = new Object[deque.length * 4];
+	for(int i = 0; i<deque.length; i++){
+	    temp[deque.length + (deque.length/2) + i] = deque[i];
+	}
+	start = deque.length + (deque.length/2);
+	end = deque.length+ (deque.length/2) + deque.length - 1;
+	deque = temp;
+    }
+
+    public T getFirst(){
+	return (T)deque[start];
+    }
+
+    public T getLast(){
+	return (T)deque[end];
     }
 
 }
