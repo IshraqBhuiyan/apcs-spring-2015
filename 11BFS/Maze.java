@@ -73,6 +73,6 @@ public class Maze{
      *Postcondition:  the correct solution is in the returned array
      */
     public int[] solutionCoordinates(){
-
+	return solutions;
     }
 }
