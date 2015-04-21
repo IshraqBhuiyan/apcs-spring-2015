@@ -40,9 +40,13 @@ public class Maze{
 	}
     }
 
-    public String toString();//do not do the funky character codes
+    public String toString(){//do not do the funky character codes
+	
+    }
 
-    public String toString(boolean animate); //do the funky character codes when animate is true
+    public String toString(boolean animate){//do the funky character codes when animate is true
+
+    }
 
     /**Solve the maze using a frontier in a BFS manner. 
      * When animate is true, print the board at each step of the algorithm.
