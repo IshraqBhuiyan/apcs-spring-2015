@@ -39,4 +39,13 @@ public class Frontier{
 	    Front.addFirst(p, p.getDist());
 	}
     }
+
+    public boolean hasNext(){
+	try{
+	    Front.getFirst();
+	    return true;
+	}catch(Exception e){
+	    return false;
+	}
+    }
 }
