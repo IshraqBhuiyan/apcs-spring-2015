@@ -1,4 +1,4 @@
-/*========== BTree.java ==========  
+/*========== BTree.java ==========
   Lab: Complete
   1. TreeNode.java
   2. add()
@@ -7,7 +7,7 @@
   5. getLevel
   6. toString
   
-  Basic binary tree.
+  basic binary tree.
   Uses TreeNode
   Stolen from DW.
   =========================*/
@@ -30,8 +30,8 @@ public class BTree<E> {
 
     /*======== public void add() ==========
       Inputs:   E d
-      Returns: 
-      
+      Returns:
+
       Wrapper method for the recursive add()
       ====================*/
     public void add( E d ) {
@@ -39,10 +39,10 @@ public class BTree<E> {
     }
 
     /*======== public void add() ==========
-      Inputs:   TreeNode<E> curr, TreeNode<E> bn  
-      Returns: 
-      
-      Adds bn to the tree rooted at curr. If curr has 
+      Inputs:   TreeNode<E> curr, TreeNode<E> bn
+      Returns:
+
+      Adds bn to the tree rooted at curr. If curr has
       an available child space, then attach bn there.
 
       Otherwise, try to add at the subtree rooted at
@@ -53,11 +53,12 @@ public class BTree<E> {
 	if(curr.getChildCount() >=2){
 	    add(curr.getChildAt((int)(Math.random() * 2)), bn);
 	}else{
-	    int x = Math.random() * 2;
-	    
+	    int x = (int)(Math.random() * 2);
+	    if(curr.getChildAt(x) != null){
+	    }
 	}
     }
-    
+
 
     public void traverse( int mode) {
 	if ( mode == PRE_ORDER )
@@ -69,9 +70,9 @@ public class BTree<E> {
 	System.out.println();
     }
     /*======== public void preOrder() ==========
-      Inputs:   TreeNode<E> curr  
-      Returns: 
-      
+      Inputs:   TreeNode<E> curr
+      Returns:
+
       Prints out the elements in the tree by doing an
       pre-order Traversal
       ====================*/
@@ -81,7 +82,7 @@ public class BTree<E> {
 
     /*======== public void inOrder() ==========
       Inputs:   TreeNode<E> curr  
-      Returns: 
+      Returns:
       
       Prints out the elements in the tree by doing an
       in-order Traversal
