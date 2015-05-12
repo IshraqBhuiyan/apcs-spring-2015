@@ -19,6 +19,9 @@ public class MyHeap{
     }
 
     public int remove(){
+	try{
+	    int temp = 1;
+	    
     }
 
     public void add(int x){
@@ -28,11 +31,31 @@ public class MyHeap{
 	    if(heap[0] == heap.length-1){
 		resize();
 	    }
+	    int curr = heap[0] + 1;
+	    heap[curr] = x;
 	    if(type){
-		int curr = heap[1];
-		while(true){}
+		while(curr/2 != 0 && heap[curr/2] >= x){
+		    int temp = heap[curr];
+		    heap[curr] = heap[curr/2];
+		    heap[curr/2] = temp;
+		}
+	    }else{
+		while(curr/2 != 0 && heap[curr/2] <= x){
+		    int temp = heap[curr];
+		    heap[curr] = heap[curr/2];
+		    heap[curr/2] = temp;
+		}
 	    }
+	    heap[0] += 1;
 	}
+    }
+
+    public void resize(){
+	int[] temp = new int[heap.length * 4];
+	for(int i=0;i<heap.length;i++){
+	    temp[i] = heap[i];
+	}
+	heap = temp;
     }
 
     public int peek(){
