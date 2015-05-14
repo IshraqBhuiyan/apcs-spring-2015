@@ -16,12 +16,23 @@ public class MyHeap{
     }
 
     public String toString(){
+	return Arrays.toString(heap);
     }
 
     public int remove(){
 	try{
-	    int temp = 1;
-	    
+	    int ind = heap[0];
+	    int temp = heap[ind];
+	    while(ind > 0){
+		temp = heap[ind/2];
+		heap[ind/2] = heap[ind];
+		ind = ind/2;
+	    }
+	    heap[0] = heap[0] - 1;
+	    return temp;
+	}catch(Exception e){
+	    throw NoSuchElementException("This Heap is empty.");
+	}
     }
 
     public void add(int x){
