@@ -31,7 +31,7 @@ public class MyHeap{
 	    heap[0] = heap[0] - 1;
 	    return temp;
 	}catch(Exception e){
-	    throw NoSuchElementException("This Heap is empty.");
+	    throw new NoSuchElementException("This Heap is empty.");
 	}
     }
 
