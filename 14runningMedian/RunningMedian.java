@@ -15,10 +15,11 @@ public class RunningMedian{
     public RunningMedian(int val){
 	max = new MyHeap(true);
 	min = new MyHeap(false);
-	median = {val};
+	median = new int[0];
+	add(val);
     }
 
-    public void add(int val){
+    public void BADadd(int val){
 	if(max.size() == min.size() && median.length < 2){
 	    if(median.length == 0){
 		median = new int[1];
@@ -35,6 +36,15 @@ public class RunningMedian{
 		}
 	    }
 	}else if(max.size() == min.size()){
+	}
+    }
+
+    public void add(int val){
+	if(val =< min.peek()){
+	    min.add(val);
+	}
+	if(val >= max.peek()){
+	    max.add(val);
 	}
     }
 }
