@@ -19,6 +19,10 @@ public class MyHeap{
 	return Arrays.toString(heap);
     }
 
+    public String name(){
+	return "ishraq.bhuiyan";
+    }
+
     public int remove(){
 	try{
 	    int ind = heap[0];
