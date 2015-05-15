@@ -10,7 +10,7 @@ public class MyHeap{
     }
 
     public MyHeap(boolean isMax){
-	type = ismax;
+	type = isMax;
 	heap = new int[15];
 	heap[0] = 0;
     }
@@ -71,7 +71,7 @@ public class MyHeap{
 
     public int peek(){
 	try{
-	    return int[1];
+	    return heap[1];
 	}catch(Exception e){
 	    throw new NoSuchElementException("This tree does not have a root.");
 	}
